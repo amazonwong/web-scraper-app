@@ -7,6 +7,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 
+
 # ISSUE REQUEST
 
 r = requests.get("https://www.newegg.com/Desktop-Graphics-Cards/SubCategory/ID-48?Tid=7709")
@@ -42,31 +43,32 @@ for container in containers:
     shipping_prices = []
     shipping_prices.append(shipping_price)
 
-    print("Brand: "+ brand)
+    print("Brand: " + brand)
     print("Product name: " + product_name)
     print("Shipping price: " + shipping_price + "\n" + "-----------------------------------")
 
 
-headers = ["brands", "product_names", "shipping_prices"]
-df = pd.DataFrame(headers)
-#df.columns.transverse = [headers]
-headers.to_data/products.xlsx
+database = [brands, product_names, shipping_prices]
+headers = ["Brand", "Product Name", "Shipping Price"]
+
+df = pd.DataFrame(database).transpose()
+df.columns = headers
+df.to_csv("data/graphic_cards.csv")
 
 #
 # GRAPHIC DATA WORDCLOUD
 #
 
-wc.to_file("product_name.png")
-plt.axis("off")
 plt.figure()
-plt.title("Default colors")
-plt.imshow(default_colors, interpolation="bilinear")
+wordcloud = WordCloud().generate(''.join(product_names))
 plt.axis("off")
+plt.imshow(wordcloud)
 plt.show()
+df.to_png("data/cloud.png")
 
 #
 # BAR CHART
 #
 
-df = pd.DataFrame("brand")
-df.plot.bar()
+df['brands'].value_counts().plot(kind='bar')
+plt.show()
