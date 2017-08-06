@@ -28,19 +28,20 @@ print("-----------------------------------")
 print("Welcome @amazonwong! *(^_^)* " + "\n" + "================================")
 print("THERE ARE " + str(len(containers)) + " PRODUCTS:" + "\n" + "================================")
 
+brands = []
+product_names = []
+shipping_prices = []
+
 for container in containers:
     brand = container.div.div.a.img["title"]
-    brands = []
     brands.append(brand)
 
     item = container.find_all("a", {"class":"item-title"})
     product_name = item[0].text
-    product_names = []
     product_names.append(product_name)
 
     price = container.find_all("li", {"class":"price-ship"})
     shipping_price = price[0].text.strip()
-    shipping_prices = []
     shipping_prices.append(shipping_price)
 
     print("Brand: " + brand)
@@ -59,12 +60,13 @@ df.to_csv("data/graphic_cards.csv")
 # GRAPHIC DATA WORDCLOUD
 #
 
+
+wordcloud = WordCloud().generate('data/graphic_cards.csv'.join(product_names))
 plt.figure()
-wordcloud = WordCloud().generate(''.join(product_names))
 plt.axis("off")
 plt.imshow(wordcloud)
 plt.show()
-df.to_png("data/cloud.png")
+plt.savefig("data/wordcloud.png")
 
 #
 # BAR CHART
@@ -72,3 +74,4 @@ df.to_png("data/cloud.png")
 
 df['brands'].value_counts().plot(kind='bar')
 plt.show()
+plt.savefig("data/barchart.png")
