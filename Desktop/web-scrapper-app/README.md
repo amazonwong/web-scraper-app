@@ -4,15 +4,13 @@ Use Python to scrape the contents of a website.
 
 For optional further exploration, store the results in a CSV file or a database, or send the results by email.
 
-For optional further exploration, deploy your scraper to a Heroku server and schedule it to perform at specified intervals.
-
 Prerequisites
 
 The requests Python Package OR The urllib Module's urllib.parse and urllib.request
 The BeautifulSoup Python Package
 Proposal Phase
 
-Example Objective(s):
+Objective(s):
 
 Extract some structured data or other meaningful content from a website of interest.
 Example Information Inputs (depending on the chosen objectives):
