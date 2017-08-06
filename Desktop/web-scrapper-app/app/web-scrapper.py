@@ -1,24 +1,42 @@
-iimport requests
+import requests
 from bs4 import BeautifulSoup #note that the import package command is bs4
+import pandas as pd
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
 
 # ISSUE REQUEST
 
-r = requests.get("https://www.gutenberg.org/ebooks/author/65")
+r = requests.get("https://www.newegg.com/Desktop-Graphics-Cards/SubCategory/ID-48?Tid=7709")
 
 # PARSE RESPONSE
 
 raw = r.text
-soup = BeautifulSoup(raw)
-titles = soup.find_all("span", "title")
-for i in range(0, 9): #we want to see only span tags labeled "titles"
-  print(titles[i])
+soup = BeautifulSoup(raw, "html.parser")
 
-#> <span class="title">Sort Alphabetically</span>
-#> <span class="title">Sort by Release Date</span>
-#> <span class="title">See also: Wikipedia</span>
-#> <span class="title">The Complete Works of William Shakespeare
-#> <span class="title">The Tragedy of Romeo and Juliet</span>
-#> <span class="title">Hamlet, Prince of Denmark</span>
-#> <span class="title">Macbeth</span>
-#> <span class="title">Hamlet</span>
-#> <span class="title">Beautiful Stories from Shakespeare</span>
+# FINDING PRODUCTS
+
+containers = soup.find_all("div", {"class":"item-container"})
+for container in containers:
+    brand = container.div.div.a.img["title"]
+    brands = []
+    brands.append(brand)
+
+    item = container.find_all("a", {"class":"item-title"})
+    product_name = item[0].text
+    product_names = []
+    product_names.append(product_name)
+
+    price = container.find_all("li", {"class":"price-ship"})
+    shipping_price = price[0].text.strip()
+    shipping_prices = []
+    shipping_prices.append(shipping_price)
+
+    print(brand)
+    print(product_name)
+    print(shipping_price)
+
+#products = []
+#headers = ["brand", "product_name", "shipping_price"]
+#df = pd.DataFrame(headers)
+#df.columns = [headers]
+#products.to_csv(product.csv)
