@@ -1,3 +1,6 @@
+# WEB SCRAPER
+
+import datetime
 import requests
 from bs4 import BeautifulSoup #note that the import package command is bs4
 import pandas as pd
@@ -16,6 +19,14 @@ soup = BeautifulSoup(raw, "html.parser")
 # FINDING PRODUCTS
 
 containers = soup.find_all("div", {"class":"item-container"})
+
+print("-----------------------------------" + "\n" + "Search Time: ", datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+print("\n" + "-----------------------------------")
+print("FINDING GRAPHIC CARDS @newegg.com")
+print("-----------------------------------")
+print("Welcome @amazonwong! *(^_^)* " + "\n" + "================================")
+print("THERE ARE " + str(len(containers)) + " PRODUCTS:" + "\n" + "================================")
+
 for container in containers:
     brand = container.div.div.a.img["title"]
     brands = []
@@ -31,12 +42,12 @@ for container in containers:
     shipping_prices = []
     shipping_prices.append(shipping_price)
 
-    print(brand)
-    print(product_name)
-    print(shipping_price)
+    print("Brand: "+ brand)
+    print("Product name: " + product_name)
+    print("Shipping price: " + shipping_price + "\n" + "-----------------------------------")
 
 
-headers = ["brands", "product_names", "shipping_prices"]
+headers = ["brand", "product_name", "shipping_price"]
 df = pd.DataFrame(headers)
-df.columns = [headers]
+df.columns.transverse = [headers]
 headers.to_product.xlsx
