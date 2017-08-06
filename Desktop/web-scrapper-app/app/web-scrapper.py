@@ -51,3 +51,22 @@ headers = ["brand", "product_name", "shipping_price"]
 df = pd.DataFrame(headers)
 df.columns.transverse = [headers]
 headers.to_product.xlsx
+
+#
+# GRAPHIC DATA WORDCLOUD
+#
+
+wc.to_file("product_name.png")
+plt.axis("off")
+plt.figure()
+plt.title("Default colors")
+plt.imshow(default_colors, interpolation="bilinear")
+plt.axis("off")
+plt.show()
+
+#
+# BAR CHART
+#
+
+df = pd.DataFrame({'word':['w1','w2','w3'],'freq':[1,2,3})
+df.plot.bar()
