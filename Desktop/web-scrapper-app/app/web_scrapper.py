@@ -51,6 +51,9 @@ def run():
         print("Product name: " + product_name)
         print("Shipping price: " + shipping_price + "\n" + "-----------------------------------")
 
+    #
+    # WRITE TO CSV
+    #
 
     database = [brands, product_names, shipping_prices]
     headers = ["Brand", "Product Name", "Shipping Price"]
@@ -63,7 +66,6 @@ def run():
     # GRAPHIC DATA WORDCLOUD
     #
 
-
     wordcloud = WordCloud().generate('data/graphic_cards.csv'.join(product_names))
     plt.figure()
     plt.axis("off")
@@ -72,7 +74,7 @@ def run():
     plt.savefig("data/wordcloud.png")
 
     #
-    # BAR CHART
+    # GENERATE BAR CHART
     #
 
     df['brands'].value_counts().plot(kind='bar')

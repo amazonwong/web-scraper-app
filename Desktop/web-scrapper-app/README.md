@@ -6,6 +6,12 @@ For optional further exploration, store the results in a CSV file or a database,
 
 Prerequisites
 
+Install package dependencies:
+
+```shell
+pip3 install -r requirements.txt
+```
+
 The requests Python Package OR The urllib Module's urllib.parse and urllib.request
 The BeautifulSoup Python Package
 Proposal Phase
@@ -24,3 +30,17 @@ Perhaps some information stored in a CSV file or database, or sent by email.
 Implementation Phase
 
 Follow the usage example in the BeautifulSoup package overview.
+
+## Usage
+
+To run:
+
+```shell
+python3 app/web_scrapper.py
+```
+
+To test:
+
+```shell
+pytest
+```
