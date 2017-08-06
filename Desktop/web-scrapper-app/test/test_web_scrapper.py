@@ -1,5 +1,5 @@
-from app.web_scrapper import enlarge  # load accompanying code (i.e. the `enlarge()` function to avoid NameError: name 'enlarge' is not defined
+from app.web_scrapper import enlarge
 
-def test_enlarge(): # name this function anything, but hopefully something corresponding to the function it is testing
+def test_enlarge():  
     result = enlarge(3)
     assert result == 300

@@ -2,7 +2,7 @@
 
 import datetime
 import requests
-from bs4 import BeautifulSoup #note that the import package command is bs4
+from bs4 import BeautifulSoup
 import pandas as pd
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
@@ -78,9 +78,8 @@ def run():
     #
 
     df['brands'].value_counts().plot(kind='bar')
-    plt.show()
     plt.savefig("data/barchart.png")
 
 
-if __name__ == "__main__": # "if this script is run from the command-line"
-    run() # use `run()` or whatever the name of your invocation function is
+if __name__ == "__main__":
+    run()

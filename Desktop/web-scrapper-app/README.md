@@ -1,10 +1,10 @@
-Freestyle Project Example - Web Scraper
+## Freestyle Project Example - Web Scraper
 
 Use Python to scrape the contents of a website.
 
 For optional further exploration, store the results in a CSV file or a database, or send the results by email.
 
-Prerequisites
+## Prerequisites
 
 Install package dependencies:
 
@@ -12,22 +12,16 @@ Install package dependencies:
 pip3 install -r requirements.txt
 ```
 
-The requests Python Package OR The urllib Module's urllib.parse and urllib.request
-The BeautifulSoup Python Package
-Proposal Phase
+## Objective(s):
 
-Objective(s):
+Extract some structured data or other meaningful content from newegg.com.
 
-Extract some structured data or other meaningful content from a website of interest.
-Example Information Inputs (depending on the chosen objectives):
+Information Inputs existing on the website: brands, product names and shipping cost.
 
-Information existing on some website.
-Maybe also some other user input.
-Example Information Outputs (depending on the chosen objectives):
+Information Outputs: creating a list of brands, product names and shipping cost to
+be stored in a CSV file.
 
-A desired terminal-output of choice.
-Perhaps some information stored in a CSV file or database, or sent by email.
-Implementation Phase
+## Implementation Phase
 
 Follow the usage example in the BeautifulSoup package overview.
 
