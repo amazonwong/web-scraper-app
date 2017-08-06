@@ -26,10 +26,10 @@ def run():
 
     print("-----------------------------------" + "\n" + "Search Time: ", datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     print("\n" + "-----------------------------------")
-    print("FINDING GRAPHIC CARDS @newegg.com")
+    print("FINDING GRAPHIC CARDS @newegg.com" + "\n")
     print("-----------------------------------")
     print("Welcome @amazonwong! *(^_^)* " + "\n" + "================================")
-    print("THERE ARE " + str(len(containers)) + " PRODUCTS:" + "\n" + "================================")
+    print("THERE ARE " + str(len(containers)) + " PRODUCTS:" + "\n" + "================================" + "\n")
 
     brands = []
     product_names = []
@@ -77,8 +77,8 @@ def run():
     # GENERATE BAR CHART
     #
 
-    df['brands'].value_counts().plot(kind='bar')
-    plt.savefig("data/barchart.png")
+    #df['brands'].value_counts().plot(kind='bar')
+    #plt.savefig("data/barchart.png")
 
 
 if __name__ == "__main__":
