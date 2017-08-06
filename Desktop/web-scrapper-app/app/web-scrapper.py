@@ -35,8 +35,8 @@ for container in containers:
     print(product_name)
     print(shipping_price)
 
-#products = []
-#headers = ["brand", "product_name", "shipping_price"]
-#df = pd.DataFrame(headers)
-#df.columns = [headers]
-#products.to_csv(product.csv)
+
+headers = ["brands", "product_names", "shipping_prices"]
+df = pd.DataFrame(headers)
+df.columns = [headers]
+headers.to_product.xlsx
